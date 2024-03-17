@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SeleniumTestC#", "SeleniumT
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestProject1", "TestProject1\TestProject1.csproj", "{40B67456-5B17-4461-A883-E0262C3DE4F9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fillform_ecommerce_C#", "Fillform_ecommerce_C#\Fillform_ecommerce_C#.csproj", "{244860AA-B5F4-4369-A2B9-FD25B05BE924}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fillform_ecommerce_C", "Fillform_ecommerce_C#\Fillform_ecommerce_C.csproj", "{244860AA-B5F4-4369-A2B9-FD25B05BE924}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
