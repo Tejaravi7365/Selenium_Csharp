@@ -64,10 +64,10 @@ namespace Fillform_ecommerce_C.Tests
         public void ClicktoOpenShopTab()
         {
 
-            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+            WebDriverWait wait = new WebDriverWait(driver.Value, TimeSpan.FromSeconds(10));
             wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.LinkText("Shop")));
 
-            driver.FindElement(By.LinkText("Shop")).Click();
+            driver.Value.FindElement(By.LinkText("Shop")).Click();
 
             Console.WriteLine("Successfully clicked Shop tab");
             wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.PartialLinkText("Checkout")));
@@ -79,7 +79,7 @@ namespace Fillform_ecommerce_C.Tests
         public void SelectionProducts()
         {
 
-            IList<IWebElement> products = driver.FindElements(By.TagName("app-card"));
+            IList<IWebElement> products = driver.Value.FindElements(By.TagName("app-card"));
 
             foreach (IWebElement product in products)
             {
@@ -90,18 +90,18 @@ namespace Fillform_ecommerce_C.Tests
                 Console.WriteLine(product.FindElement(By.CssSelector(".card-title a")).Text);
             }
 
-            driver.FindElement(By.ClassName("btn-primary")).Click();
+            driver.Value.FindElement(By.ClassName("btn-primary")).Click();
 
-            WebDriverWait wait1 = new WebDriverWait(driver, TimeSpan.FromSeconds(5));
+            WebDriverWait wait1 = new WebDriverWait(driver.Value, TimeSpan.FromSeconds(5));
             wait1.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(By.ClassName("btn-success")));
 
-            driver.FindElement(By.ClassName("btn-success")).Click();
+            driver.Value.FindElement(By.ClassName("btn-success")).Click();
 
             //dyanamic dropdown 
 
-            driver.FindElement(By.Id("country")).SendKeys("fin");
+            driver.Value.FindElement(By.Id("country")).SendKeys("fin");
 
-            IList<IWebElement> Options = driver.FindElements(By.CssSelector("app-checkout[class='row'] ul"));
+            IList<IWebElement> Options = driver.Value.FindElements(By.CssSelector("app-checkout[class='row'] ul"));
 
             foreach (IWebElement option in Options)
             {
@@ -111,10 +111,10 @@ namespace Fillform_ecommerce_C.Tests
                 }
 
             }
-            TestContext.Progress.WriteLine(driver.FindElement(By.Id("country")).GetAttribute("value"));
-            driver.FindElement(By.CssSelector("label[for*='checkbox2']")).Click();
-            driver.FindElement(By.CssSelector("input[value='Purchase']")).Click();
-            string S = driver.FindElement(By.ClassName("alert-success")).Text;
+            TestContext.Progress.WriteLine(driver.Value.FindElement(By.Id("country")).GetAttribute("value"));
+            driver.Value.FindElement(By.CssSelector("label[for*='checkbox2']")).Click();
+            driver.Value.FindElement(By.CssSelector("input[value='Purchase']")).Click();
+            string S = driver.Value.FindElement(By.ClassName("alert-success")).Text;
 
             StringAssert.Contains("Success", S);
             TestContext.Progress.WriteLine(S);
